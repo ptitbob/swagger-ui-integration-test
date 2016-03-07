@@ -48,6 +48,11 @@
         <dependencies>
             <dependency>
                 <groupId>org.shipstone.swagger</groupId>
+                <artifactId>base</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.shipstone.swagger</groupId>
                 <artifactId>swagger-ui-integration</artifactId>
                 <version>${swagger-ui-integration.version}</version>
             </dependency>

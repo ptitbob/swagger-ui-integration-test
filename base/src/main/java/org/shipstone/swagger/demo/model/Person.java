@@ -1,16 +1,23 @@
 package org.shipstone.swagger.demo.model;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
 /**
  * @author François Robert
  */
+@XmlRootElement(name = "person")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorOrder(XmlAccessOrder.UNDEFINED)
 public class Person {
 
+  @XmlAttribute
   private Integer id;
 
+  @XmlElement
   private String firstname;
 
+  @XmlElement
   private String lastname;
 
   public Person() {

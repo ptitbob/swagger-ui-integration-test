@@ -5,13 +5,13 @@ import org.shipstone.swagger.demo.exception.PersonNotExistException;
 import org.shipstone.swagger.demo.model.Person;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
 
 /**
  * @author francois
  */
-@Singleton
+@ApplicationScoped
 public class PersonService {
 
   private Map<Integer, Person> personMap;
@@ -34,13 +34,15 @@ public class PersonService {
 
   public List<Person> getList(PersonSortType personSortType) {
     List<Person> personList = new ArrayList<>(personMap.values());
-    switch (personSortType) {
-      case ID:
-        Collections.sort(personList, (person1, person2) -> person1.getId().compareTo(person1.getId()));
-        break;
-      case NAME:
-        Collections.sort(personList, (person1, person2) -> (person1.getFirstname() + "-" + person1.getLastname()).compareTo((person2.getFirstname() + " " + person2.getLastname())));
-        break;
+    if (personSortType != null) {
+      switch (personSortType) {
+        case ID:
+          Collections.sort(personList, (person1, person2) -> person1.getId().compareTo(person1.getId()));
+          break;
+        case NAME:
+          Collections.sort(personList, (person1, person2) -> (person1.getFirstname() + "-" + person1.getLastname()).compareTo((person2.getFirstname() + " " + person2.getLastname())));
+          break;
+      }
     }
     return personList;
   }

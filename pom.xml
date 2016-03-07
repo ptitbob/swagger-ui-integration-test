@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.shipstone.swagger</groupId>
+    <artifactId>demo-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>Demonstration project for swagger-ui-integration use</description>
+
+    <developers>
+        <developer>
+            <name>Francois Robert</name>
+            <email>francois.robert@shipstone.org</email>
+            <url>http://www.shipstone.org</url>
+            <timezone>Europe/Paris</timezone>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.java.version>1.8</project.java.version>
+        <javaee.version>7.0</javaee.version>
+        <maven.min.version>3.3.0</maven.min.version>
+        <swagger-ui-integration.version>0.5-SNAPSHOT</swagger-ui-integration.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.shipstone.swagger</groupId>
+                <artifactId>swagger-ui-integration</artifactId>
+                <version>${swagger-ui-integration.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>${project.java.version}</source>
+                    <target>${project.java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

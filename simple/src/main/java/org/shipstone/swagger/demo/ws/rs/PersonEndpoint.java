@@ -23,10 +23,7 @@ import java.util.List;
 @Produces({
     "application/json", "application/xml"
 })
-@Api(
-    value = "Person"
-    , description = "Person REST endpoint"
-)
+@Api(tags = "person")
 public class PersonEndpoint {
 
   @Inject

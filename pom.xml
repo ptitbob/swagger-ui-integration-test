@@ -33,7 +33,7 @@
         <project.java.version>1.8</project.java.version>
         <javaee.version>7.0</javaee.version>
         <maven.min.version>3.3.0</maven.min.version>
-        <swagger-ui-integration.version>0.5-SNAPSHOT</swagger-ui-integration.version>
+        <swagger-ui-integration.version>0.6</swagger-ui-integration.version>
     </properties>
 
     <dependencies>

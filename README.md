@@ -31,10 +31,10 @@ curl -i -X POST -d 'firstname=John&lastname=Doe' http://localhost:8080/simple/ap
 
 * List 
 
-```
+```shell
 http GET localhost:8080/simple/api/person
 ```
-```
+```shell
 curl -i -X GET http://localhost:8080/simple/api/person
 ```
 
@@ -43,16 +43,16 @@ if you want xml :
 ```shell
 http GET localhost:8080/simple/api/person accept:application/xml
 ```
-```
+```shell
 curl -i -X GET --header 'accept: application/xml' http://localhost:8080/simple/api/person
 ```
 
 * Single entity
 
-```
+```shell
 http GET localhost:8080/simple/api/person/1
 ```
-```
+```shell
 curl -i -X GET http://localhost:8080/simple/api/person/1
 ```
 
@@ -61,16 +61,16 @@ curl -i -X GET http://localhost:8080/simple/api/person/1
 ```shell
 echo '{"id":1,"firstname":"John","lastname":"DOE"}' | http PUT localhost:8080/simple/api/person/1
 ```
-```
+```shell
 curl -i -X PUT -d '{"id":1,"firstname":"John","lastname":"DOE"}' http://localhost:8080/simple/api/person/1
 ```
 
 ###Delete
 
-```
+```shell
 http DELETE localhost:8080/simple/api/person/1
 ```
-```
+```shell
 curl -i -X DELETE http://localhost:8080/simple/api/person/1
 ```
 

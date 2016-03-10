@@ -98,4 +98,4 @@ in second time, create class describe swagger-ui-integration basic configuration
 public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
 }
 ```
-Your class must extend `AbstractSwaggerURLRewriter` class and use annotations `@RewriteConfiguration` and `@SwaggerUIConfiguration`, witch expected the JAX-RS application class.
+Your class must extend `AbstractSwaggerURLRewriter` class and use annotations `@RewriteConfiguration` and `@SwaggerUIConfiguration`, which expected the JAX-RS application class.

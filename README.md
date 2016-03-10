@@ -99,3 +99,12 @@ public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
 }
 ```
 Your class must extend `AbstractSwaggerURLRewriter` class and use annotations `@RewriteConfiguration` and `@SwaggerUIConfiguration`, which expected the JAX-RS application class.
+
+Deploy the war to a application server (i.e. wildfly). Now you can test with http command ;).
+
+The libraty create two url (in this case, default url) : 
+
+* [http://localhost:8080/simple/api/swagger](http://localhost:8080/simple/api/swagger) : send REST API description using swagger format.
+* [http://localhost:8080/simple/api-docs/](http://localhost:8080/simple/api-docs/) : access to the embedded swagger UI site from library.
+
+***And voila !!***

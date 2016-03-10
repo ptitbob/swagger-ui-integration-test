@@ -34,6 +34,7 @@
         <javaee.version>7.0</javaee.version>
         <maven.min.version>3.3.0</maven.min.version>
         <swagger-ui-integration.version>0.6</swagger-ui-integration.version>
+        <swagger.version>1.5.7</swagger.version>
     </properties>
 
     <dependencies>
@@ -41,6 +42,7 @@
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>${javaee.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -50,6 +52,11 @@
                 <groupId>org.shipstone.swagger</groupId>
                 <artifactId>base</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.shipstone.swagger</groupId>

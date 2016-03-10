@@ -1,11 +1,11 @@
 #Demo - swagger-ui-integration
-####*some projects to introduce the use of the swagger-UI-integration library*
+####*some projects to introduce the use of the [swagger-UI-integration library](https://github.com/ptitbob/swagger-ui-integration)*
 
 ---
 
 ##Introduction
 
-I made a basic module (module base), which contains all the APIs in my application demonstration, including REST endpoints and class of the REST application.
+I made a basic module ([module base](#module-base)), which contains all the APIs in my application demonstration, including REST endpoints and class of the REST application.
 
 >This is certainly not the right way, this is just as an example. ;)
 

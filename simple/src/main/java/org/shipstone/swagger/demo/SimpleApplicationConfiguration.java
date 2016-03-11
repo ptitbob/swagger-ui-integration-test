@@ -9,8 +9,6 @@ import org.shipstone.swagger.integration.SwaggerUIConfiguration;
  * @author francois
  */
 @RewriteConfiguration
-@SwaggerUIConfiguration(
-    restApplicationClass = SimpleApplication.class
-)
+@SwaggerUIConfiguration()
 public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
 }

@@ -92,9 +92,7 @@ in second time, create class describe swagger-ui-integration basic configuration
 
 ```java
 @RewriteConfiguration
-@SwaggerUIConfiguration(
-    restApplicationClass = SimpleApplication.class
-)
+@SwaggerUIConfiguration
 public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
 }
 ```

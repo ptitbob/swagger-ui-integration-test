@@ -26,6 +26,8 @@
     <modules>
         <module>simple</module>
         <module>base</module>
+        <module>parameterized</module>
+        <module>baseApplication</module>
     </modules>
 
     <properties>
@@ -51,6 +53,11 @@
             <dependency>
                 <groupId>org.shipstone.swagger</groupId>
                 <artifactId>base</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.shipstone.swagger</groupId>
+                <artifactId>baseApplication</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

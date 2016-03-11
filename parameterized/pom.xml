@@ -9,14 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>simple</artifactId>
-    <packaging>war</packaging>
+    <artifactId>parameterized</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.shipstone.swagger</groupId>
-            <artifactId>baseApplication</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>base</artifactId>
         </dependency>
         <dependency>
             <groupId>org.shipstone.swagger</groupId>
@@ -25,7 +23,7 @@
     </dependencies>
 
     <build>
-        <finalName>simple</finalName>
+        <finalName>param</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -37,4 +35,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

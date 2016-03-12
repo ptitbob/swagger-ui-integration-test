@@ -11,11 +11,14 @@ I made a basic module ([module base](#module-base)), which contains all the APIs
 
 But this will allow me to better show the operation of the swagger-ui-integration library over a few examples.
 
-* [Module simple](#module-simple) - library basic use
+* [Module simple](#module-simple) - library basic use.
+* [Module parameterized](#module-parameterized) - example for use annoation with paramters as your own index file.
+
+>You could find the dependency in [maven central repository » swagger-ui-integration](http://mvnrepository.com/artifact/org.shipstone/swagger-ui-integration).
 
 ##Module base
 
-The application offers CRUD operations and provide data as JSON. Here are some sample call with [HTTPie](https://github.com/jkbrzt/httpie) and [cURL](https://curl.haxx.se):
+The application offers CRUD operations and provide data as JSON. Here are some examples to call with [HTTPie](https://github.com/jkbrzt/httpie) and [cURL](https://curl.haxx.se) (with use module baseApplication for configure base REST application):
 
 ###Create
 
@@ -84,7 +87,7 @@ First, include dependency :
 <dependency>
     <groupId>org.shipstone.swagger</groupId>
     <artifactId>swagger-ui-integration</artifactId>
-    <version>0.6</version>
+    <version>0.8</version>
 </dependency>
 ```
 
@@ -96,7 +99,7 @@ in second time, create class describe swagger-ui-integration basic configuration
 public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
 }
 ```
-Your class must extend `AbstractSwaggerURLRewriter` class and use annotations `@RewriteConfiguration` and `@SwaggerUIConfiguration`, which expected the JAX-RS application class.
+Your class must extend `AbstractSwaggerURLRewriter` class and use annotations `@RewriteConfiguration` and `@SwaggerUIConfiguration`.
 
 Deploy the war to a application server (i.e. wildfly). Now you can test with http command ;).
 
@@ -106,3 +109,66 @@ The libraty create two url (in this case, default url) :
 * [http://localhost:8080/simple/api-docs/](http://localhost:8080/simple/api-docs/) : access to the embedded swagger UI site from library.
 
 ***And voila !!***
+
+##Module parameterized
+
+This module show how configure swagger configuration by annotation and adding your ```index.html``` in place of the default page.
+
+First time, set the swagger-ui-integration in your pom.
+
+Second time, create your configuration class : 
+
+```java
+@RewriteConfiguration
+@SwaggerUIConfiguration(
+    restApplicationClass = RestApplication.class
+    , apiDocPath = "documentation"
+    , apiDocIndex = "rest-index/index.html"
+)
+public class ParameterizedApplicationConfiguration extends AbstractSwaggerURLRewriter {
+}
+```
+
+As you see, i set the `restApplicationClass` because the rest applicationPath was store in `@ApplicationPath`. 
+
+I also set the parameters `apiDocPath` and `apiDocIndex` : 
+
+* `apiDocPath` : i change default url to *documentation', see the url examples below.
+* `apiDocIndex` : to use *my custom index page*, this file store in my resources directory. If you want do same, see below in chapter *[use your own page](#use-your-own-page)*.
+
+
+You also see that I have defined the swagger of configuration for generating base of swagger description.
+
+```java
+@ApplicationPath("rest")
+@SwaggerDefinition(
+    info = @Info(title = "swagger-ui-integration demo", version = "1", description = "Global description for basic application demo")
+    , tags = {
+        @Tag(name = "person", description = "Action on person !!")
+    }
+)
+public class RestApplication extends Application { }
+```
+
+* [http://localhost:8080/param/rest/swagger](http://localhost:8080/param/rest/swagger) : get REST API description using swagger format.
+* [http://localhost:8080/param/documentation/](http://localhost:8080/param/documentation/) : access to the embedded swagger UI site from library.
+
+##Use your own page
+
+For use your own documentation page, you could use the library default page (see source here : [github.com/.../index.html](https://github.com/ptitbob/swagger-ui-integration/blob/master/src/main/resources/inside-docs/index.html)) and customize !
+
+You ***must keep*** all header file and javascript part. Don't change the ids, because the swagger-ui javascript uses them. And more particularly, those two lines there:
+
+```html
+<div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+```
+
+In my example, I changed that:
+
+* The logo, header title and url target
+* banner background color
+* hide all input
+
+My index.html: [github.com/.../parameterized/.../resources/rest-index/index.html](https://github.com/ptitbob/swagger-ui-integration-test/blob/master/parameterized/src/main/resources/rest-index/index.html).
+

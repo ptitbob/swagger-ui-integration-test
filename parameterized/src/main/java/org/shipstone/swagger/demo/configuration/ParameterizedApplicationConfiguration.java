@@ -12,6 +12,7 @@ import org.shipstone.swagger.integration.SwaggerUIConfiguration;
 @SwaggerUIConfiguration(
     restApplicationClass = RestApplication.class
     , apiDocPath = "documentation"
+    , apiDocIndex = "rest-index/index.html"
 )
 public class ParameterizedApplicationConfiguration extends AbstractSwaggerURLRewriter {
 }

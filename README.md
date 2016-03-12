@@ -85,7 +85,7 @@ First, include dependency :
 
 ```xml
 <dependency>
-    <groupId>org.shipstone.swagger</groupId>
+    <groupId>org.shipstone</groupId>
     <artifactId>swagger-ui-integration</artifactId>
     <version>0.8</version>
 </dependency>

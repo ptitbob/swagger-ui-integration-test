@@ -15,8 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>org.shipstone.swagger</groupId>
-            <artifactId>baseApplication</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>base</artifactId>
         </dependency>
         <dependency>
             <groupId>org.shipstone</groupId>

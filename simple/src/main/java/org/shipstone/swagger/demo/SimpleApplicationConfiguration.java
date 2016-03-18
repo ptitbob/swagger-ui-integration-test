@@ -1,14 +1,23 @@
 package org.shipstone.swagger.demo;
 
-import org.ocpsoft.rewrite.annotation.RewriteConfiguration;
-import org.shipstone.swagger.demo.ws.rs.SimpleApplication;
-import org.shipstone.swagger.integration.AbstractSwaggerURLRewriter;
-import org.shipstone.swagger.integration.SwaggerUIConfiguration;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+import org.shipstone.swagger.integration.annotation.SwaggerUIConfiguration;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /**
  * @author francois
  */
-@RewriteConfiguration
-@SwaggerUIConfiguration()
-public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
+@SwaggerUIConfiguration
+@ApplicationPath("api")
+@SwaggerDefinition(
+    info = @Info(title = "swagger-ui-integration demo", version = "1", description = "Global description for basic application demo")
+    , tags = {
+    @Tag(name = "person", description = "Action on person !!")
+}
+)
+public class SimpleApplicationConfiguration extends Application {
 }

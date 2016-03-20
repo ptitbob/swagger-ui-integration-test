@@ -1,4 +1,4 @@
-package org.shipstone.swagger.demo.ws.rs;
+package org.shipstone.swagger.demo.application;
 
 import io.swagger.annotations.Info;
 import io.swagger.annotations.SwaggerDefinition;

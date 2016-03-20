@@ -1,15 +1,15 @@
 package org.shipstone.swagger.demo.configuration;
 
-import org.shipstone.swagger.demo.ws.rs.RestApplication;
 import org.shipstone.swagger.integration.annotation.SwaggerUIConfiguration;
 
 /**
- * @author francois
+ * @author francois Robert
  */
 @SwaggerUIConfiguration(
-    restApplicationClass = RestApplication.class
-    , apiDocPath = "documentation"
+    apiDocPath = "documentation"
     , apiDocIndex = "rest-index/index.html"
+    , restApplicationPackageAsRoot = false
+    , restApplicationPackage = "org.shipstone.swagger.demo.ws.rs"
 )
 public class ParameterizedApplicationConfiguration {
 }

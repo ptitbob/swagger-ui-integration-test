@@ -17,7 +17,7 @@ import javax.ws.rs.core.Application;
     info = @Info(title = "swagger-ui-integration demo", version = "1", description = "Global description for basic application demo")
     , tags = {
     @Tag(name = "person", description = "Action on person !!")
-}
+  }
 )
 public class SimpleApplicationConfiguration extends Application {
 }

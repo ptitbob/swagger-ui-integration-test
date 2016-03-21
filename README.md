@@ -13,6 +13,7 @@ But this will allow me to better show the operation of the swagger-ui-integratio
 
 * [Module simple](#module-simple) - library basic use.
 * [Module parameterized](#module-parameterized) - example for use annoation with paramters as your own index file.
+* [Module resources  parameterized](#module-resources-parameterized) - example for use resources configuration file.
 
 >You could find the dependency in [maven central repository » swagger-ui-integration](http://mvnrepository.com/artifact/org.shipstone/swagger-ui-integration).
 

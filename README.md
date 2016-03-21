@@ -87,16 +87,16 @@ First, include dependency :
 <dependency>
     <groupId>org.shipstone</groupId>
     <artifactId>swagger-ui-integration</artifactId>
-    <version>0.8</version>
+    <version>1.0-RC1</version>
 </dependency>
 ```
 
 in second time, create class describe swagger-ui-integration basic configuration : 
 
 ```java
-@RewriteConfiguration
 @SwaggerUIConfiguration
-public class SimpleApplicationConfiguration extends AbstractSwaggerURLRewriter {
+@ApplicationPath("api")
+public class SimpleApplicationConfiguration extends Application {
 }
 ```
 Your class must extend `AbstractSwaggerURLRewriter` class and use annotations `@RewriteConfiguration` and `@SwaggerUIConfiguration`.
@@ -119,13 +119,13 @@ First time, set the swagger-ui-integration in your pom.
 Second time, create your configuration class : 
 
 ```java
-@RewriteConfiguration
 @SwaggerUIConfiguration(
-    restApplicationClass = RestApplication.class
-    , apiDocPath = "documentation"
+    apiDocPath = "documentation"
     , apiDocIndex = "rest-index/index.html"
+    , restApplicationPackageAsRoot = false
+    , restApplicationPackage = "org.shipstone.swagger.demo.ws.rs"
 )
-public class ParameterizedApplicationConfiguration extends AbstractSwaggerURLRewriter {
+public class ParameterizedApplicationConfiguration {
 }
 ```
 
@@ -152,6 +152,31 @@ public class RestApplication extends Application { }
 
 * [http://localhost:8080/param/rest/swagger](http://localhost:8080/param/rest/swagger) : get REST API description using swagger format.
 * [http://localhost:8080/param/documentation/](http://localhost:8080/param/documentation/) : access to the embedded swagger UI site from library.
+
+
+##Module resources parameterized
+
+I used the same value as the parameterized module, but I have placed in the resources configuration file ... To show you the configuration of load management, I disabled the integration at the annotation, to reactivate in the configuration file.
+
+```java
+@ApplicationPath("rest")
+@SwaggerUIConfiguration(
+    active = false // set activation to false, file configuration set to true
+)
+public class RestApplication extends Application {
+}
+```
+
+configuration file : 
+
+```properties
+#Swagger-UI-integration configuration file
+swagger.active=true
+swagger.apiDocPath = documentation
+swagger.apiDocIndex = rest-index/index.html
+swagger.restApplicationPackageAsRoot = false
+swagger.restApplicationPackage = org.shipstone.swagger.demo.ws.rs
+```
 
 ##Use your own page
 

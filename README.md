@@ -1,5 +1,6 @@
-#Demo - swagger-ui-integration
-####*some projects to introduce the use of the [swagger-UI-integration library](https://github.com/ptitbob/swagger-ui-integration)*
+# Demo - swagger-ui-integration
+
+#### *some projects to introduce the use of the [swagger-UI-integration library](https://github.com/ptitbob/swagger-ui-integration)*
 
 ---
 
